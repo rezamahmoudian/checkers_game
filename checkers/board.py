@@ -9,16 +9,17 @@ class Board:
         self.selected_piece = None
         self.red_piece = self.white_piece = 12
         self.red_king = self.white_king = 0
+        self.create_board()
 
-    def draw_board(self, screen):
+    def draw_square(self, screen):
         screen.fill(BLACK)
         for row in range(ROWS):
             for col in range(row % 2, ROWS, 2):
                 pygame.draw.rect(screen, RED, (row * SQUARE_SIZE, col * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
 
     def create_board(self):
-        self.board.append([])
         for row in range(ROWS):
+            self.board.append([])
             for col in range(COLS):
                 if col % 2 == ((row + 1) % 2):
                     if row < 3:
@@ -29,3 +30,11 @@ class Board:
                         self.board[row].append(0)
                 else:
                     self.board[row].append(0)
+
+    def draw(self, screen):
+        self.draw_square(screen)
+        for row in range(ROWS):
+            for col in range(COLS):
+                piece = self.board[row][col]
+                if piece != 0:
+                    piece.draw_pieces(screen)
