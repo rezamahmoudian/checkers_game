@@ -10,7 +10,7 @@ class Piece:
         self.row = row
         self.col = col
         self.color = color
-        self.king = False
+        self.king = True
 
         if self.color == RED:
             self.diricion = 1
@@ -32,3 +32,5 @@ class Piece:
         radius = SQUARE_SIZE // 2 - self.PADDING
         pygame.draw.circle(screen, self.color, (self.x, self.y), radius + self.BORDER)
         pygame.draw.circle(screen, self.color, (self.x, self.y), radius)
+        if self.king:
+            screen.blit(CROWN, (self.x - CROWN.get_width()//2, self.y - CROWN.get_height()//2))
