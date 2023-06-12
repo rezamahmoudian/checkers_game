@@ -8,6 +8,7 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('checkers')
 
 
+# گرفتن سطر و ستون مهره با استفاده از نصطه ی کلیک موس
 def get_row_col_from_mouse(mouse_pos):
     x, y = mouse_pos
     row = y // SQUARE_SIZE
@@ -29,6 +30,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
 
+            # انتخاب مهره با کلیک روی آن
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
                 row, col = get_row_col_from_mouse(mouse_pos)
