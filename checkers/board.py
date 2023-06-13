@@ -15,7 +15,7 @@ class Board:
         screen.fill(BLACK)
         for row in range(ROWS):
             for col in range(row % 2, ROWS, 2):
-                pygame.draw.rect(screen, RED, (row * SQUARE_SIZE, col * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
+                pygame.draw.rect(screen, BLACK2, (row * SQUARE_SIZE, col * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
 
     def move(self, piece, row, col):
         self.board[piece.row][piece.col], self.board[row][col] = self.board[row][col], self.board[piece.row][piece.col]
@@ -39,7 +39,7 @@ class Board:
                     if row < 3:
                         self.board[row].append(Piece(row, col, WHITE))
                     elif row > 4:
-                        self.board[row].append(Piece(row, col, BLACK2))
+                        self.board[row].append(Piece(row, col, RED))
                     else:
                         self.board[row].append(0)
                 else:
@@ -52,3 +52,22 @@ class Board:
                 piece = self.board[row][col]
                 if piece != 0:
                     piece.draw_pieces(screen)
+
+    def get_valid_moves(self, piece):
+        moves = {}
+        left = piece.col - 1
+        right = piece.col + 1
+        row = piece.row
+
+        if piece.color == RED or piece.king:
+            pass
+        if piece.color == WHITE or piece.king:
+            pass
+
+        return moves
+
+    def _traverse_left(self, start, stop, step, color, left, skipped=[]):
+        pass
+
+    def _traverse_right(self, start, stop, step, color, right, skipped=[]):
+        pass
