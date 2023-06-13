@@ -1,5 +1,5 @@
 import pygame
-from .constrant import BLACK, RED, ROWS, SQUARE_SIZE, COLS, WHITE
+from .constrant import BLACK, RED, ROWS, SQUARE_SIZE, COLS, WHITE, BLACK2
 from .piece import Piece
 
 
@@ -39,7 +39,7 @@ class Board:
                     if row < 3:
                         self.board[row].append(Piece(row, col, WHITE))
                     elif row > 4:
-                        self.board[row].append(Piece(row, col, RED))
+                        self.board[row].append(Piece(row, col, BLACK2))
                     else:
                         self.board[row].append(0)
                 else:

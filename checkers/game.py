@@ -48,3 +48,10 @@ class Game:
             return False
 
         return True
+
+    def change_turn(self):
+        self.valid_moves = {}
+        if self.turn == RED:
+            self.turn = WHITE
+        else:
+            self.turn = RED
