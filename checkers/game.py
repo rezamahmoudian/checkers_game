@@ -1,5 +1,5 @@
 import pygame
-from .constrant import RED, WHITE
+from .constrant import RED, WHITE, BLUE, SQUARE_SIZE
 from .board import Board
 
 
@@ -55,3 +55,11 @@ class Game:
             self.turn = WHITE
         else:
             self.turn = RED
+
+    def draw_valid_moves(self, moves):
+        for move in moves:
+            row, col = move
+            pygame.draw.circle(self.win, BLUE, (col * SQUARE_SIZE + SQUARE_SIZE//2, row * SQUARE_SIZE + SQUARE_SIZE//2), 15)
+
+    def winner(self):
+        return self.board.winner()

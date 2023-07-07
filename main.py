@@ -3,6 +3,7 @@ from checkers.constrant import WIDTH, HEIGHT, SQUARE_SIZE
 from checkers.board import Board
 from checkers.game import Game
 
+
 FPS = 60
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
